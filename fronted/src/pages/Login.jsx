@@ -29,29 +29,60 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <Input
-          name="emailOrUsername"
-          placeholder="Email or Username"
-          value={form.emailOrUsername}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
-        {error && <div className="text-red-500 text-sm">{error}</div>}
-        <Button type="submit">Login</Button>
-      </form>
+    <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-gray-50">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-6 sm:p-8">
+        <div className="text-center mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Welcome Back</h2>
+          <p className="text-gray-600 mt-2">Sign in to your account</p>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <Input
+              name="emailOrUsername"
+              placeholder="Email or Username"
+              value={form.emailOrUsername}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
+          <div>
+            <Input
+              name="password"
+              type="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm">
+              {error}
+            </div>
+          )}
+          
+          <Button type="submit" className="w-full">
+            Sign In
+          </Button>
+        </form>
+        
+        <div className="mt-6 text-center">
+          <p className="text-gray-600 text-sm">
+            Don't have an account?{' '}
+            <button 
+              onClick={() => navigate('/register')}
+              className="text-blue-500 hover:text-blue-600 font-medium"
+            >
+              Sign up
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Login; 
+export default Login;

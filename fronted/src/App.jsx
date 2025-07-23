@@ -1,11 +1,14 @@
 import React from 'react';
 import AppRouter from './router';
+import { TodoProvider } from './context/TodoContext';
 
 const App = () => {
   return (
-    <div className="min-h-screen bg-gray-200">
-      <AppRouter />
-    </div>
+    <TodoProvider>
+      <div className="min-h-screen bg-gray-200">
+        <AppRouter />
+      </div>
+    </TodoProvider>
   );
 };
 
